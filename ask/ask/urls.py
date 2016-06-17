@@ -10,9 +10,9 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^login/', 'qa.views.test'),
-    url(r'^singup/', qa.views.test),
+    url(r'^singup/', 'qa.views.test'),
     url(r'^question/', include('qa.urls')),
-    url(r'^ask/', qa.views.test),
-    url(r'^popular/', qa.views.test),
-    url(r'^new/', qa.views.test),
+    url(r'^ask/', 'qa.views.test'),
+    url(r'^popular/', 'qa.views.test'),
+    url(r'^new/', 'qa.views.test'),
 )
