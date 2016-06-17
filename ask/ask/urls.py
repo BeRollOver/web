@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'ask.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^/$', include(admin.site.urls)),
     url(r'^login/', 'qa.views.test'),
     url(r'^singup/', 'qa.views.test'),
     url(r'^question/', include('qa.urls')),
