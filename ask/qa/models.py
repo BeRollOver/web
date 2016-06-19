@@ -20,7 +20,7 @@ class QuestionManager(models.Manager):
         return cursor.fetchone()
 
 class Question(models.Model):
-    objects = QuestionManager()
+    #objects = QuestionManager()
     title = models.CharField(max_length=50)
     text = models.TextField()
     added_at = models.DateTimeField(auto_now_add=True)
@@ -34,6 +34,6 @@ class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateTimeField(auto_now_add=True)
     question = models.ForeignKey(Question)
-    author = models.OneToOneField(User, related_name='user')
+    author = models.OneToOneField(User)
     class Meta:
         db_table = 'answer'
