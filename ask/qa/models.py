@@ -20,20 +20,16 @@ class QuestionManager(models.Manager):
         return cursor.fetchone()
 
 class Question(models.Model):
-    #objects = QuestionManager()
+    objects = QuestionManager()
     title = models.CharField(max_length=50)
     text = models.TextField()
     added_at = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(default=0)
-    author = models.OneToOneField(User)
+    author = models.ForeignKey(User)
     likes = models.ManyToManyField(User, related_name='user_likes')
-    class Meta:
-        db_table = 'question'
         
 class Answer(models.Model):
     text = models.TextField()
     added_at = models.DateTimeField(auto_now_add=True)
     question = models.ForeignKey(Question)
-    author = models.OneToOneField(User)
-    class Meta:
-        db_table = 'answer'
+    author = models.ForeignKey(User)
