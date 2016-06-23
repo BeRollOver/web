@@ -17,7 +17,7 @@ def index(request):
     questions = Question.objects.new()
     paginator = Paginator(questions, 10)
     paginator.baseurl = '/?page='
-     try: 
+    try: 
         page = paginator.page(page)
     except EmptyPage: 
         page = paginator.page(paginator.num_pages) 
@@ -35,7 +35,7 @@ def popular(request):
     questions = Question.objects.popular()
     paginator = Paginator(questions, 10)
     paginator.baseurl = '/popular/?page='
-     try: 
+    try: 
         page = paginator.page(page)
     except EmptyPage: 
         page = paginator.page(paginator.num_pages) 
