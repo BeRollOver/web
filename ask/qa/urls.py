@@ -3,5 +3,5 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'[0-9]+/$', views.test, name="test"),
+    url(r'(?P<question_id>[0-9]+)/$', views.details, name="details"),
 ]
