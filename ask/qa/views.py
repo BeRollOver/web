@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
-from .models import Question
+from qa.models import Question
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -22,9 +22,9 @@ def index(request):
     except EmptyPage: 
         page = paginator.page(paginator.num_pages) 
     return render(request, 'qa/index.html', {
-        questions:  page.object_list,
-        paginator:  paginator,
-        page:    page,
+        'questions':  page.object_list,
+        'paginator':  paginator,
+        'page':    page,
     })
 
 def popular(request):
@@ -40,7 +40,7 @@ def popular(request):
     except EmptyPage: 
         page = paginator.page(paginator.num_pages) 
     return render(request, 'qa/index.html', {
-        questions:  page.object_list,
-        paginator:  paginator,
-        page:    page,
+        'questions':  page.object_list,
+        'paginator':  paginator,
+        'page':    page,
     })

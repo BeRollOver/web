@@ -1,7 +1,7 @@
 <h1>{{ question.title }}</h1>
 <p>{{ question.text }}</p>
 <ul>
-{% for a in question.answer_set.all %}
-<li>{{ a.text }}</li>
+{% for choice in question.answer_set.all %}
+    <li>{{ choice.text }}</li>
 {% endfor %}
 </ul>
