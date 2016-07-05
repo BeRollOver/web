@@ -1,22 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
-class QuestionQuerySet(models.QuerySet):
+class QuestionManager(models.Manager):    
     def new(self):
         return self.order_by("-id")
 
     def popular(self):
         return self.order_by("-rating")
-
-class QuestionManager(models.Manager):    
-    def get_queryset(self):
-        return QuestionQuerySet(self.model, using=self._db)     
-
-    def new(self):
-        return self.get_queryset().new()
-
-    def popular(self):
-        return self.get_queryset().popular()
 
 class Question(models.Model):
     objects = QuestionManager()
