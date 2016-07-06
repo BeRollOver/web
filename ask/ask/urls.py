@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^login/', ask.views.test),
     url(r'^signup/', ask.views.test),
     url(r'^question/', include('qa.urls')),
-    url(r'^ask/', ask.views.test),
+    url(r'^ask/', qa.views.ask, name='ask'),
+    url(r'^answer/', qa.views.answer, name='answer'),
     url(r'^new/', ask.views.test),
 )

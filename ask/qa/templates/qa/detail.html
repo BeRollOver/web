@@ -5,3 +5,9 @@
     <li>{{ choice.text }}</li>
 {% endfor %}
 </ul>
+
+<form action="/answer/" method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="Submit" />
+</form>
