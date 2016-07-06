@@ -7,6 +7,9 @@ class AskForm(ModelForm):
         model = Question
         fields = ['title', 'text']
 
+    def clean(self):
+        return self.instance.cleaned_data
+
 class AnswerForm(ModelForm): 
     class Meta:
         model = Answer
