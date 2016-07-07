@@ -6,10 +6,55 @@ from .forms import AskForm, AnswerForm
 
 # Create your views here.
 from django.http import HttpResponse
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth.models import User
+import random
+import datetime
+
+def signup(request):
+    error = '' 
+    if request.method == 'POST': 
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        User.objects.create_user(username=username, password=password, email=email).save()
+        user = authenticate(username=username, password=password)
+        auth_login(request, user)
+        return HttpResponseRedirect('/')
+
+    return render(request, 'registration/signup.html', {'error': error })
+
+def login(request):
+    error = '' 
+    if request.method == 'POST': 
+        username = request.POST['username']
+        password = request.POST['password']
+        url = request.POST.get('continue', '/') 
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            if user.is_active:
+                auth_login(request, user)
+                # Redirect to a success page.
+                response = HttpResponseRedirect('/')
+                response.set_cookie('sessionid', str(random.randrange(1000000)),  
+                    httponly=True, 
+	                expires = datetime.datetime.now()+datetime.timedelta(days=5) 
+                )
+                return response
+            else:
+                # Return a 'disabled account' error message
+                error = 'disabled account'
+        else:
+            # Return an 'invalid login' error message.
+            error = 'invalid login'
+
+    return render(request, 'registration/login.html', {'error': error }) 
+
 
 def details(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    form = AnswerForm()
+    form = AnswerForm(initial={'question': question, 'author': request.user})
     return render(request, 'qa/detail.html', {'question': question, 'form': form})
 
 def ask(request):
@@ -19,7 +64,7 @@ def ask(request):
             return HttpResponseRedirect(form.save().get_url())
 
     else:
-        form = AskForm()
+        form = AskForm(initial={'author': request.user})
 
     return render(request, 'qa/question_details.html', {'form': form})
 
