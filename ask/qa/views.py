@@ -54,7 +54,10 @@ def login(request):
 
 def details(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
-    form = AnswerForm(initial={'question': question, 'author': request.user})
+    if(request.user.is_authenticated()):
+        form = AnswerForm(initial={'question': question})
+    else:
+        form = AnswerForm(initial={'question': question, 'author': request.user})
     return render(request, 'qa/detail.html', {'question': question, 'form': form})
 
 def ask(request):
@@ -64,7 +67,10 @@ def ask(request):
             return HttpResponseRedirect(form.save().get_url())
 
     else:
-        form = AskForm(initial={'author': request.user})
+        if(request.user.is_authenticated()):
+            form = AskForm(initial={'author': request.user})
+        else:
+            form = AskForm()
 
     return render(request, 'qa/question_details.html', {'form': form})
 

@@ -10,6 +10,8 @@ class AskForm(forms.ModelForm):
         widgets = {
             'author': widgets.HiddenInput(),
         }
+    def clean(self):
+        return self.instance.cleaned_data
 
 class AnswerForm(forms.ModelForm): 
     class Meta:
@@ -19,3 +21,5 @@ class AnswerForm(forms.ModelForm):
             'question': widgets.HiddenInput(),
             'author': widgets.HiddenInput(),
         }
+    def clean(self):
+        return self.instance.cleaned_data
