@@ -43,3 +43,27 @@ POST
 valid form
 body: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=x123&text=2bo%212b%3F&author=1'
 post: <QueryDict: {'title': ['x123'], 'text': ['2bo!2b?'], 'author': ['1'], 'csrfmiddlewaretoken': ['jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV']}>
+non auth user
+GET
+body: b''
+post: <QueryDict: {}>
+POST
+valid form
+body: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=Second+Question&text=asdasd'
+post: <QueryDict: {'title': ['Second Question'], 'text': ['asdasd'], 'csrfmiddlewaretoken': ['jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV']}>
+non auth user
+GET
+user: AnonymousUser
+post: <QueryDict: {}>
+POST
+valid form
+user: AnonymousUser
+post: <QueryDict: {'text': ['asdasd'], 'title': ['Second Question'], 'csrfmiddlewaretoken': ['jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV']}>
+non auth user
+GET
+user: AnonymousUser
+post: <QueryDict: {}>
+POST
+valid form
+user: AnonymousUser
+post: <QueryDict: {'csrfmiddlewaretoken': ['jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV'], 'title': ['Second Question'], 'text': ['asdasd']}>

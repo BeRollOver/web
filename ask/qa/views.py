@@ -64,14 +64,14 @@ def details(request, question_id):
 
 def ask(request):
     if request.method == 'POST':
-        form = AskForm(request.POST)
-        form._user = request.user
         if(request.user is None): 
             logger.debug('user is none')
+        form = AskForm(request.POST, initial={'author': request.user})
+        form._user = request.user
         logger.debug('POST')
         if form.is_valid():
             logger.debug('valid form')
-            logger.debug('body: {}\npost: {}'.format(request.body, request.POST))
+            logger.debug('user: {}\npost: {}'.format(request.user, request.POST))
             return HttpResponseRedirect(form.save().get_url())
 
     else:
@@ -83,7 +83,7 @@ def ask(request):
             form = AskForm()
         logger.debug('GET')
 
-    logger.debug('body: {}\npost: {}'.format(request.body,request.POST))
+    logger.debug('user: {}\npost: {}'.format(request.user,request.POST))
     return render(request, 'qa/question_details.html', {'form': form})
 
     
