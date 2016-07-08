@@ -3,3 +3,4 @@ mysql -uroot -e "CREATE USER 'admin'"
 mysql -uroot -e "SET PASSWORD FOR 'admin' = PASSWORD('123')"
 mysql -uroot -e "CREATE DATABASE mybase"
 mysql -uroot -e "GRANT ALL ON mybase.* TO 'admin'"
+python manage.py syncdb

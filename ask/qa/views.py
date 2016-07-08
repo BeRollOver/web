@@ -74,8 +74,9 @@ def ask(request):
             form = AskForm(initial={'author': request.user})
         else:
             form = AskForm()
+        logger.debug('GET')
 
-    logger.debug(request.body)
+    logger.debug('body: {}\npost: {}'.format(request.body,request.POST))
     return render(request, 'qa/question_details.html', {'form': form})
 
     

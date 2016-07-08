@@ -30,3 +30,8 @@ post: <QueryDict: {'author': ['2'], 'text': ['lll'], 'title': ['Second Question'
 b''
 body: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=Second+Question&text=lll&author=1'
 post: <QueryDict: {'author': ['1'], 'text': ['lll'], 'title': ['Second Question'], 'csrfmiddlewaretoken': ['jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV']}>
+GET
+body: b''
+post: <QueryDict: {}>
+body: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=Second+Question&text=assa&author=1'
+post: <QueryDict: {'csrfmiddlewaretoken': ['jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV'], 'title': ['Second Question'], 'author': ['1'], 'text': ['assa']}>
