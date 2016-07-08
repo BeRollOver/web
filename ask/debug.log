@@ -35,3 +35,11 @@ body: b''
 post: <QueryDict: {}>
 body: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=Second+Question&text=assa&author=1'
 post: <QueryDict: {'csrfmiddlewaretoken': ['jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV'], 'title': ['Second Question'], 'author': ['1'], 'text': ['assa']}>
+non auth user
+GET
+body: b''
+post: <QueryDict: {}>
+POST
+valid form
+body: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=x123&text=2bo%212b%3F&author=1'
+post: <QueryDict: {'title': ['x123'], 'text': ['2bo!2b?'], 'author': ['1'], 'csrfmiddlewaretoken': ['jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV']}>

@@ -65,6 +65,9 @@ def details(request, question_id):
 def ask(request):
     if request.method == 'POST':
         form = AskForm(request.POST)
+        form._user = request.user
+        if(request.user is None): 
+            logger.debug('user is none')
         logger.debug('POST')
         if form.is_valid():
             logger.debug('valid form')
