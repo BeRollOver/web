@@ -1,32 +1,4 @@
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-b''
-b'csrfmiddlewaretoken=bmWAAij0NoGLSf0WdFZQi6UP20UMb5hk&title=Second+Question&text=asdads&author=1'
-b''
-b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=Second+Question&text=asdads&author=2'
-b''
-body: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=Second+Question&text=asdads&author=2'
-post: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=Second+Question&text=asdads&author=2'
-b''
-body: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=Second+Question&text=asdads&author=2'
-post: author csrfmiddlewaretoken title text
-b''
-body: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=Second+Question&text=lll&author=2'
-post: <QueryDict: {'author': ['2'], 'text': ['lll'], 'title': ['Second Question'], 'csrfmiddlewaretoken': ['jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV']}>
-b''
-body: b'csrfmiddlewaretoken=jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV&title=Second+Question&text=lll&author=1'
-post: <QueryDict: {'author': ['1'], 'text': ['lll'], 'title': ['Second Question'], 'csrfmiddlewaretoken': ['jFxUWtrm3t7W1RfL4RsQaqKJoUoYfpvV']}>
+
+text=2bo%212b%3F&csrfmiddlewaretoken=uBbwtuHxKXjBh7yUkzlx31ZiznwoB10U&title=x123
+
+text=2bo%212b%3F&csrfmiddlewaretoken=Oi0mqZEUsuSXtfvR2TThgh5dowxp1I3O&title=x123
