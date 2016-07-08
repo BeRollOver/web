@@ -10,6 +10,8 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth.models import User
 import random
 import datetime
+import logging
+logger = logging.getLogger('project.interesting.stuff')
 
 def signup(request):
     error = '' 
@@ -64,6 +66,7 @@ def ask(request):
     if request.method == 'POST':
         form = AskForm(request.POST)
         if form.is_valid():
+            logger.debug('body: {}\npost: {}'.format(request.body, request.POST))
             return HttpResponseRedirect(form.save().get_url())
 
     else:
@@ -72,6 +75,7 @@ def ask(request):
         else:
             form = AskForm()
 
+    logger.debug(request.body)
     return render(request, 'qa/question_details.html', {'form': form})
 
     
