@@ -65,14 +65,18 @@ def details(request, question_id):
 def ask(request):
     if request.method == 'POST':
         form = AskForm(request.POST)
+        logger.debug('POST')
         if form.is_valid():
+            logger.debug('valid form')
             logger.debug('body: {}\npost: {}'.format(request.body, request.POST))
             return HttpResponseRedirect(form.save().get_url())
 
     else:
         if(request.user.is_authenticated()):
+            logger.debug('auth user')
             form = AskForm(initial={'author': request.user})
         else:
+            logger.debug('non auth user')
             form = AskForm()
         logger.debug('GET')
 
